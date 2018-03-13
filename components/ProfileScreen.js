@@ -1,5 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Counter from "./Counter";
+
+const ProfileScreen = () => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>Profile Screen</Text>
+    {/*<Counter count={0} />*/}
+  </View>
+);
+
+ProfileScreen.navigationOptions = {
+  title: "Profile"
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -14,15 +26,5 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
-
-const ProfileScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>Profile Screen</Text>
-  </View>
-);
-
-ProfileScreen.navigationOptions = {
-  title: "Profile"
-};
 
 export default ProfileScreen;

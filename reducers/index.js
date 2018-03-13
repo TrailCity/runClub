@@ -1,15 +1,32 @@
 import { combineReducers } from "redux";
 import { NavigationActions } from "react-navigation";
 import { AppNavigator } from "../navigators/AppNavigator";
+// import { ContentNavigator } from "../navigators/ContentNavigator";
 
 // Start with two routes: The Main screen, with the Login screen on top.
-const firstAction = AppNavigator.router.getActionForPathAndParams("Main");
+const firstAction = AppNavigator.router.getActionForPathAndParams("Home");
 const tempNavState = AppNavigator.router.getStateForAction(firstAction);
 const secondAction = AppNavigator.router.getActionForPathAndParams("Login");
 const initialNavState = AppNavigator.router.getStateForAction(
   secondAction,
   tempNavState
 );
+// Okay so instead I want initialNavState to be ... do I want Home to be
+// on TOP of Login? That might be convenient for the moment, I wonder,
+// though ... if so, I'll have to customize the back button on Android
+
+const initialAuthState = { isLoggedIn: false };
+
+function auth(state = initialAuthState, action) {
+  switch (action.type) {
+    case "Login":
+      return { ...state, isLoggedIn: true };
+    case "Logout":
+      return { ...state, isLoggedIn: false };
+    default:
+      return state;
+  }
+}
 
 function nav(state = initialNavState, action) {
   let nextState;
@@ -30,27 +47,26 @@ function nav(state = initialNavState, action) {
       nextState = AppNavigator.router.getStateForAction(action, state);
       break;
   }
-
-  // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 }
 
-const initialAuthState = { isLoggedIn: false };
+const initialCounterState = { count: 0 };
 
-function auth(state = initialAuthState, action) {
+const counter = (state = initialCounterState, action) => {
   switch (action.type) {
-    case "Login":
-      return { ...state, isLoggedIn: true };
-    case "Logout":
-      return { ...state, isLoggedIn: false };
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
     default:
       return state;
   }
-}
+};
 
 const AppReducer = combineReducers({
   nav,
-  auth
+  auth,
+  counter
 });
 
 export default AppReducer;

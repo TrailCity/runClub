@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import { middleware } from "../utils/redux";
 import rootReducer from "../reducers";
-/*
+
 export default function configureStore() {
   const store = createStore(rootReducer, applyMiddleware(middleware));
   if (module.hot) {
@@ -10,10 +10,6 @@ export default function configureStore() {
       store.replaceReducer(nextRootReducer);
     });
   }
-  return store;
-} */
-
-export default function configureStore() {
-  const store = createStore(rootReducer, applyMiddleware(middleware));
+  console.log(store.getState());
   return store;
 }

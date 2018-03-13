@@ -4,14 +4,6 @@ import { connect } from "react-redux";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { NavigationActions } from "react-navigation";
 
-const styles = StyleSheet.create({
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
-});
-
 const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
   if (!isLoggedIn) {
     return <Text>Please log in</Text>;
@@ -36,6 +28,14 @@ LoginStatusMessage.propTypes = {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn
+});
+
+const styles = StyleSheet.create({
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10
+  }
 });
 
 export default connect(mapStateToProps)(LoginStatusMessage);

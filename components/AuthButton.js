@@ -8,6 +8,7 @@ const AuthButton = ({ logout, loginScreen, isLoggedIn }) => (
   <Button
     title={isLoggedIn ? "Log Out" : "Open Login Screen"}
     onPress={isLoggedIn ? logout : loginScreen}
+    color="#ffffff"
   />
 );
 

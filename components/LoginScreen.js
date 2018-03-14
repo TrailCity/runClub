@@ -8,6 +8,7 @@ const LoginScreen = ({ navigation }) => (
     <Button
       onPress={() => navigation.dispatch({ type: "Login" })}
       title="Log in"
+      color="#FFFFFF"
     />
   </View>
 );

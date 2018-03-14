@@ -16,6 +16,7 @@ const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
           dispatch(NavigationActions.navigate({ routeName: "Profile" }))
         }
         title="Profile"
+        color="#FFFFFF"
       />
     </View>
   );
@@ -34,7 +35,8 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10
+    margin: 10,
+    color: "#FFFFFF"
   }
 });
 

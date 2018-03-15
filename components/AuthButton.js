@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Button } from "react-native";
+import AppButton from "./AppButton";
 import { NavigationActions } from "react-navigation";
 
 const AuthButton = ({ logout, loginScreen, isLoggedIn }) => (
-  <Button
+  <AppButton
     title={isLoggedIn ? "Log Out" : "Open Login Screen"}
     onPress={isLoggedIn ? logout : loginScreen}
-    color="#ffffff"
   />
 );
 

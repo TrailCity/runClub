@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Button, StyleSheet, Text, View, StatusBar } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import SplashScreen from "react-native-splash-screen";
+import AppButton from "./AppButton";
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -11,15 +12,14 @@ class LoginScreen extends Component {
     SplashScreen.hide();
   }
   render() {
-    const { navigate } = this.props;
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#006600" barStyle="light-content" />
         <Text style={styles.welcome}>Welcome to RunClub!</Text>
-        <Button
+        <AppButton
           onPress={() => navigation.dispatch({ type: "Login" })}
           title="Log in"
-          color="#FFFFFF"
         />
       </View>
     );

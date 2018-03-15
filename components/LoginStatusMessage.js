@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import AppButton from "./AppButton";
 import { NavigationActions } from "react-navigation";
 
 const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
@@ -11,12 +12,11 @@ const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
   return (
     <View>
       <Text style={styles.welcome}>{'You are "logged in" right now'}</Text>
-      <Button
+      <AppButton
         onPress={() =>
           dispatch(NavigationActions.navigate({ routeName: "Profile" }))
         }
         title="Profile"
-        color="#FFFFFF"
       />
     </View>
   );

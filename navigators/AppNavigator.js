@@ -5,7 +5,13 @@ import { addNavigationHelpers, StackNavigator } from "react-navigation";
 import RouteConfigs from "../routes/RouteConfigs";
 import { addListener } from "../utils/redux";
 
-export const AppNavigator = StackNavigator(RouteConfigs);
+export const AppNavigator = StackNavigator(RouteConfigs, {
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: "#006600"
+    }
+  }
+});
 
 class AppWithNavigationState extends Component {
   static propTypes = {

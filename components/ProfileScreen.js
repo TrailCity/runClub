@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import AuthButton from "./AuthButton";
 import Counter from "./Counter";
 
 const ProfileScreen = () => (
   <View style={styles.container}>
+    <StatusBar backgroundColor="#006600" barStyle="light-content" />
     <Text style={styles.welcome}>Profile Screen</Text>
     <AuthButton />
     {/*<Counter count={0} />*/}

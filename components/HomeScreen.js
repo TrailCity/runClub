@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 import LoginStatusMessage from "./LoginStatusMessage";
 import AuthButton from "./AuthButton";
 
 const HomeScreen = () => (
   <View style={styles.container}>
+    <StatusBar backgroundColor="#006600" barStyle="light-content" />
     <LoginStatusMessage />
     <AuthButton />
   </View>

@@ -1,17 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, StatusBar } from "react-native";
+import SplashScreen from "react-native-splash-screen";
 
-const LoginScreen = ({ navigation }) => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>Welcome to RunClub!</Text>
-    <Button
-      onPress={() => navigation.dispatch({ type: "Login" })}
-      title="Log in"
-      color="#FFFFFF"
-    />
-  </View>
-);
+class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+  render() {
+    const { navigate } = this.props;
+    return (
+      <View style={styles.container}>
+        <StatusBar backgroundColor="#006600" barStyle="light-content" />
+        <Text style={styles.welcome}>Welcome to RunClub!</Text>
+        <Button
+          onPress={() => navigation.dispatch({ type: "Login" })}
+          title="Log in"
+          color="#FFFFFF"
+        />
+      </View>
+    );
+  }
+}
 
 LoginScreen.propTypes = {
   navigation: PropTypes.object.isRequired

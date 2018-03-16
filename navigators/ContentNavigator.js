@@ -5,7 +5,11 @@ import MainContentRouteConfigs from "../routes/MainContentRouteConfigs";
 
 const ContentNavigator =
   Platform.OS === "ios"
-    ? TabNavigator(MainContentRouteConfigs)
+    ? TabNavigator(MainContentRouteConfigs, {
+        navigationOptions: {
+          header: null
+        }
+      })
     : DrawerNavigator(MainContentRouteConfigs);
 
 export default ContentNavigator;

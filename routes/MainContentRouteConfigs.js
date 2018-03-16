@@ -1,11 +1,11 @@
-import ContentScreen1 from "../components/ContentScreen1";
+import NewBuds from "../components/NewBuds";
 import ContentScreen2 from "../components/ContentScreen2";
 import ContentScreen3 from "../components/ContentScreen3";
 import DubbyStackNav from "../navigators/DubbyStackNav";
 
 export default {
-  Screen1: {
-    screen: ContentScreen1
+  NewBuds: {
+    screen: NewBuds
   },
   Screen2: {
     screen: ContentScreen2

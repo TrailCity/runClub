@@ -12,7 +12,8 @@ const HomeScreen = () => (
 );
 
 HomeScreen.navigationOptions = {
-  title: "Home Screen"
+  title: "Home Screen",
+  headerLeft: null
 };
 
 const styles = StyleSheet.create({

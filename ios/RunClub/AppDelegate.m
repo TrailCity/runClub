@@ -13,10 +13,14 @@
 #import <React/RCTRootView.h>
 #import "SplashScreen.h"
 
+@import GoogleMaps;
+/* I suspect this is not right */
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
++  [GMSServices provideAPIKey:@"AIzaSyBNMbMmTDvLAhVBIVgUE7p0ueNVxIva5Ls"]; // add this line using the api key obtained from Google Console
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];

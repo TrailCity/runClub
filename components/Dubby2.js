@@ -6,7 +6,7 @@ class Dubby2 extends Component {
   render() {
     return (
       <View>
-        <Text>Dubby1</Text>
+        <Text>Dubby2!</Text>
       </View>
     );
   }

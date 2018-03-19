@@ -1,5 +1,5 @@
 import NewBuds from "../components/NewBuds";
-import ContentScreen2 from "../components/ContentScreen2";
+import Runs from "../components/Runs";
 import ContentScreen3 from "../components/ContentScreen3";
 import DubbyStackNav from "../navigators/DubbyStackNav";
 
@@ -7,8 +7,8 @@ export default {
   NewBuds: {
     screen: NewBuds
   },
-  Screen2: {
-    screen: ContentScreen2
+  Runs: {
+    screen: Runs
   },
   Screen3: {
     screen: ContentScreen3

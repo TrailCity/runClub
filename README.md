@@ -7,5 +7,6 @@ Google Maps Testing API (Android): AIzaSyAY_WAhAwx3JMAHBX9RzmEtt2OwZRhYLbE
 
 IMPORTANT! DO NOT USE REACT-NATIVE LINK! YOU WILL BREAK REACT-NATIVE-MAPS!
 I DON'T KNOW WHY! THERE ARE RECOVERY PROTOCOL, BUT YOU MAY BE NUKING THE PROJECT!
+Use react-native link LIB_NAME_HERE
 
 So I guess comments don't work in JSON, but if nothing else works, change the version back to npm for react-native-maps ...

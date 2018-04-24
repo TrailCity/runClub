@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { View, Text, Button } from "react-native";
 
-const Counter = ({ count, increment, decremet }) => (
+const Counter = ({ count, increment, decrement }) => (
   <View>
     <Text>{count}</Text>
     <Button onPress={() => increment} title="Increment" />

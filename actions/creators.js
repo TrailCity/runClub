@@ -1,8 +1,10 @@
-import { INCREMENT, DECREMENT } from "./types";
+import types from "./types";
+
+console.log(types.INCREMENT);
 
 export const increment = () => ({
-  type: INCREMENT
+  type: types.INCREMENT
 });
 export const decrement = () => ({
-  type: DECREMENT
+  type: types.DECREMENT
 });

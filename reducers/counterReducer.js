@@ -1,15 +1,11 @@
-import { INCREMENT, DECREMENT } from "../actions/types";
+import types from "../actions/types";
 
-const initialCounterState = { count: 0 };
-
-const counterReducer = (state = initialCounterState, action) => {
+const counterReducer = (state = 0, action) => {
   switch (action.type) {
-    case INCREMENT:
-      console.log("Increment called");
-      return { ...state, count: count + 1 };
-    case DECREMENT:
-      console.log("Decrement called");
-      return { ...state, count: count - 1 };
+    case types.INCREMENT:
+      return state + 1;
+    case types.DECREMENT:
+      return state - 1;
     default:
       return state;
   }

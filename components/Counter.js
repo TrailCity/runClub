@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { INCREMENT, DECREMENT } from "../actions/creators";
 import { connect } from "react-redux";
 import { View, Text, Button } from "react-native";
 
@@ -16,8 +17,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch({ type: "INCREMENT" }),
-  decrement: () => dispatch({ type: "DECREMENT" })
+  increment: () => dispatch(INCREMENT),
+  decrement: () => dispatch(DECREMENT)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

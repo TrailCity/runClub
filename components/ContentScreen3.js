@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
-import CounterContainer from "./containers/CounterContainer";
+import Counter from "./Counter";
 
 class ContentScreen3 extends Component {
   render() {
     return (
       <View>
-        <CounterContainer />
+        <Counter />
       </View>
     );
   }

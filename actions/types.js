@@ -1,2 +1,6 @@
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+const types = {
+  INCREMENT: "INCREMENT",
+  DECREMENT: "DECREMENT"
+};
+
+export default types;

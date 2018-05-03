@@ -1,0 +1,37 @@
+Scale!
+
+PinPoint: Analytics
+Cognito: Users
+Device Farm: Testing
+ - Users with phones that don't run your app will leave a bad rating!
+DynamoDB: NoSQL
+S3: Storage
+Lambda: Serverless
+API Gateway: This is cool, you can set up an API for your resources (Lambda functions and DynamoDB etc) and it's
+  protected and if your API is solid, you can sell the API, like WUnderground provides their API for a price,
+  and they don't even own the data.
+They also have things like text to speech, image recognition, and conversational bots.
+CloudFront: CDN/caching for S3 buckets etc.
+Looks like if you start with MobileHub, you can set up a lot of the services and download a demo app with
+  everything baked in
+
+PWAs
+- offline
+- homepage
+- resilient
+- responsive
+
+App shell, bundled html/css/js, cached
+Service worker: programmable network proxy, can't access DOM, so uses postMessage, has access to IndexedDB APIs
+LocalStorage is blocking and sync, IndexedDB is indexed and async. Can access with JS, can be verbose LocalForage is Amazon's wrapper
+
+Pushing for hosting on AWS, too. I'd be down, BlueHost is a fucking nightmare.
+LightSail: more hands-on, flat rate ($5/mo), good for small projects
+MobileHub: S3 + CloudFront + serverless, CLI
+Fargate: enterprise web applications (has stuff)
+
+PWA project, today we're WildRides
+
+How to crash a wifi: tell a room full of developers to clone a repo all at once
+HOLY SHIT THAT WAS NADER DABIT
+HOLY SHIT I SHOOK NADER DABIT'S HAND AND HE SAID HE KNEW WHO I WAS HOLY SHIT.

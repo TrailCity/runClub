@@ -7,6 +7,8 @@ target 'RunClub' do
 
   # Pods for RunClub
 
+  pod 'RNAWSCognito', :path => '../node_modules/amazon-cognito-identity-js'
+
   target 'RunClubTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,8 +1,8 @@
 import { AppRegistry } from "react-native";
 import React, { Component } from "react";
-import configureStore from "./store/configureStore";
+import configureStore from "./src/store/configureStore";
 import { Provider } from "react-redux";
-import AppWithNavigationState from "./navigators/AppNavigator";
+import AppWithNavigationState from "./src/navigators/AppNavigator";
 
 const store = configureStore();
 

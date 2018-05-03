@@ -13,7 +13,7 @@ const Counter = ({ count, onIncrement, onDecrement }) => (
 );
 
 const mapStateToProps = state => ({
-  count: state.counterReducer
+  count: state.counter
 });
 /*
 const mapDispatchToProps = {

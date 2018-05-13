@@ -1,5 +1,5 @@
 import { AppRegistry } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 import configureStore from "./src/store/configureStore";
 import { Provider } from "react-redux";
 import AppWithNavigationState from "./src/navigators/AppNavigator";

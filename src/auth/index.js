@@ -1,11 +1,11 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
 import Welcome from "./Welcome";
-import Welcome2 from "./Welcome2";
+import SignUp from "./SignUp";
 
 const routes = {
   Welcome,
-  Welcome2
+  SignUp
 };
 
 const config = {};

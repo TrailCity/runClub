@@ -3,6 +3,6 @@ import { View, Button } from "react-native";
 
 export default () => (
   <View>
-    <Button onPress={console.log("BOOP")} title="HI!!!!!!!!!!!!" />
+    <Button onPress={() => console.log("BOOP")} title="HI!!!!!!!!!!!!" />
   </View>
 );

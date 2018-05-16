@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
-import Auth from "./auth";
+import AuthStack from "./auth";
 import Main from "./main";
 
 class App extends Component {
   state = {
     user: "",
-    isLoading: true
+    isLoading: false
   };
+  /*
   async componentDidMount() {
     try {
       const user = await Auth.currentAuthenticatedUser();
@@ -17,6 +18,8 @@ class App extends Component {
       this.setState({ isLoading: false });
     }
   }
+  */
+  /*
   async componentWillReceiveProps(nextProps) {
     try {
       const user = await Auth.currentAuthenticatedUser();
@@ -25,6 +28,7 @@ class App extends Component {
       this.setState({ user: {} });
     }
   }
+  */
   render() {
     if (this.state.isLoading) return null;
     {
@@ -37,7 +41,7 @@ class App extends Component {
     if (loggedIn) {
       return <Main />;
     }
-    return <Auth />;
+    return <AuthStack />;
   }
 }
 

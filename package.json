@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "amazon-cognito-identity-js": "^2.0.6",
     "aws-amplify": "^0.3.3",
     "aws-amplify-react-native": "^0.2.9",
     "prop-types": "^15.6.1",
@@ -20,7 +21,8 @@
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^3.2.3"
+    "styled-components": "^3.2.3",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-jest": "22.4.1",

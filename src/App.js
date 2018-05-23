@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
+import SplashScreen from "react-native-splash-screen";
 import AuthStack from "./auth";
 import Main from "./main";
 
@@ -9,8 +10,8 @@ class App extends Component {
     user: "",
     isLoading: false
   };
-  /*
   async componentDidMount() {
+    SplashScreen.hide();
     try {
       const user = await Auth.currentAuthenticatedUser();
       this.setState({ user, isLoading: false });
@@ -18,8 +19,6 @@ class App extends Component {
       this.setState({ isLoading: false });
     }
   }
-  */
-  /*
   async componentWillReceiveProps(nextProps) {
     try {
       const user = await Auth.currentAuthenticatedUser();
@@ -28,7 +27,6 @@ class App extends Component {
       this.setState({ user: {} });
     }
   }
-  */
   render() {
     if (this.state.isLoading) return null;
     {

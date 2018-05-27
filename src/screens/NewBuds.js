@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import Swiper from "react-native-deck-swiper";
-import Card from "./Card";
+import Card from "../components/Card";
 import data from "../data/data";
 
 class NewBuds extends Component {

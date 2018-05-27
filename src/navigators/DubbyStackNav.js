@@ -1,6 +1,6 @@
 import { StackNavigator } from "react-navigation";
-import DubbyNavRoutes from "../routes/DubbyNavRoutes";
+import DubbyRoutes from "../routes/DubbyRoutes";
 
-const DubbyStackNav = StackNavigator(DubbyNavRoutes, { headerMode: "screen" });
+const DubbyStackNav = StackNavigator(DubbyRoutes, { headerMode: "screen" });
 
 export default DubbyStackNav;

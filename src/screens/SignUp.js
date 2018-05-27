@@ -1,38 +1,14 @@
-// As of 2018-05-01 8am this is copy pasta from RNAuth
-
-/*
-   I think I want social sign up to still be a thing ...
-   Balancing the social data with what data the app wants will be a thing ...
-   - Name
-   - email
-   - number
-   - [ running, location stuff ]
-*/
-
 import React, { Component } from "react";
-import {
-  Platform,
-  Text,
-  View,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ActivityIndicator,
-  Modal
-} from "react-native";
-import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
-import { fonts, colors } from "../theme";
-import { createUser, confirmUserSignUp } from "../actions/creators";
+import { View, Text, Modal, StyleSheet } from "react-native";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { createUser, confirmUserSignUp } from "../actions/creators";
 
 const initialState = {
   username: "",
-  password: "",
   email: "",
-  phone_number: "",
+  password: "",
   authCode: ""
 };
 
@@ -43,13 +19,21 @@ class SignUp extends Component {
       [key]: value
     });
   };
+  onChangeTextEmail = (key, value) => {
+    this.setState({
+      [key]: value
+    });
+    this.setState({
+      username: value.replace(/[@.]/g, "|")
+    });
+  };
   signUp = () => {
-    const { username, password, email, phone_number } = this.state;
-    this.props.dispatchCreateUser(username, password, email, phone_number);
+    const { username, password, email } = this.state;
+    this.props.dispatchCreateUser(username, password, email);
   };
   confirm = () => {
-    const { authCode, username } = this.state;
-    this.props.dispatchConfirmUser(username, authCode);
+    const { username, authCode } = this.state;
+    this.props.dispatchConfirmSignUp(username, authCode);
   };
   componentWillReceiveProps(nextProps) {
     const {
@@ -73,50 +57,34 @@ class SignUp extends Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.heading}>
-          <Image
-            source={require("../assets/logo-negative/LogoNegative.png")}
-            style={styles.headingImage}
-            resizeMode="contain"
-          />
-        </View>
-        <Text style={styles.greeting}>Welcome to RunClub!</Text>
-        <Text style={styles.greeting2}>Please sign up to continue</Text>
-        <View style={styles.inputContainer}>
-          <Input
-            value={this.state.username}
-            placeholder="User Name"
-            type="username"
-            onChangeText={this.onChangeText}
-          />
-          <Input
-            value={this.state.email}
-            placeholder="Email"
-            type="email"
-            onChangeText={this.onChangeText}
-          />
-          <Input
-            value={this.state.password}
-            placeholder="Password"
-            type="password"
-            secureTextEntry
-            onChangeText={this.onChangeText}
-          />
-          <Input
-            value={this.state.phone_number}
-            placeholder="Phone Number"
-            type="phone_number"
-            keyboardType="numeric"
-            onChangeText={this.onChangeText}
-          />
-        </View>
-        <Button
-          title="Sign Up"
-          onPress={this.signUp}
-          isLoading={isAuthenticating}
+        <Text>Welcome to RunClub!</Text>
+        <Text>Sign up to share runs with other awesome runners!</Text>
+        <Input
+          placeholder="email"
+          type="email"
+          onChangeText={this.onChangeTextEmail}
+          value={this.state.email}
+          autoFocus={true}
         />
+        <Input
+          placeholder="password"
+          type="password"
+          onChangeText={this.onChangeText}
+          value={this.state.password}
+          secureTextEntry
+        />
+        {/*
+        <Input
+          placeholder="confirm password"
+          type="password"
+          onChangeText={this.onChangeText}
+          value={this.state.passwordConfirm}
+          secureTextEntry
+        />
+        */}
+        <Button title="Sign Up" onPress={this.signUp} />
         <Text style={[styles.errorMessage, signUpError && { color: "black" }]}>
-          Error logging in. Please try again.
+          Error logging in! Please try again.
         </Text>
         <Text style={[styles.errorMessage, signUpError && { color: "black" }]}>
           {signUpErrorMessage}
@@ -149,50 +117,28 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  dispatchConfirmUser: (username, authCode) =>
-    confirmUserSignUp(username, authCode),
-  dispatchCreateUser: (username, password, email, phone_number) =>
-    createUser(username, password, email, phone_number)
+  dispatchCreateUser: (username, password, email) =>
+    createUser(username, password, email),
+  dispatchConfirmSignUp: (username, authCode) =>
+    confirmUserSignUp(username, authCode)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 const styles = StyleSheet.create({
-  modal: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  inputContainer: {
-    marginTop: 20
-  },
   container: {
     flex: 1,
     justifyContent: "center",
     paddingHorizontal: 40
   },
-  greeting: {
-    marginTop: 20,
-    fontFamily: fonts.light,
-    fontSize: 24
-  },
-  greeting2: {
-    fontFamily: fonts.light,
-    color: "#666",
-    fontSize: 24,
-    marginTop: 5
-  },
-  heading: {
-    flexDirection: "row"
-  },
-  headingImage: {
-    width: 38,
-    height: 38
-  },
   errorMessage: {
-    fontFamily: fonts.base,
     fontSize: 12,
     marginTop: 10,
     color: "transparent"
+  },
+  modal: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

@@ -1,6 +1,6 @@
-import NewBuds from "../components/NewBuds";
-import Runs from "../components/Runs";
-import ContentScreen3 from "../components/ContentScreen3";
+import NewBuds from "../screens/NewBuds";
+import Runs from "../screens/Runs";
+import ContentScreen3 from "../screens/ContentScreen3";
 import DubbyStackNav from "../navigators/DubbyStackNav";
 
 export default {

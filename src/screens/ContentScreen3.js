@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
-import Counter from "./Counter";
+import Counter from "../components/Counter";
 
 class ContentScreen3 extends Component {
   render() {

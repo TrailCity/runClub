@@ -1,26 +1,24 @@
 import { NavigationActions } from "react-navigation";
-import { AppNavigator } from "../navigators/AppNavigator";
+import { MainNavigator } from "../navigators/MainNavigator";
 
-const initialNavAction = AppNavigator.router.getActionForPathAndParams("Login");
-const initialNavState = AppNavigator.router.getStateForAction(initialNavAction);
+const initialNavAction = MainNavigator.router.getActionForPathAndParams(
+  "NewBuds"
+);
+const initialNavState = MainNavigator.router.getStateForAction(
+  initialNavAction
+);
 
 const navReducer = (state = initialNavState, action) => {
   let nextState;
   switch (action.type) {
-    case "Login":
-      nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: "Content" }),
-        state
-      );
-      break;
-    case "Logout":
-      nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: "Login" }),
+    case "Counter":
+      nextState = MainNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: "Screen3" }),
         state
       );
       break;
     default:
-      nextState = AppNavigator.router.getStateForAction(action, state);
+      nextState = MainNavigator.router.getStateForAction(action, state);
       break;
   }
   return nextState || state;
@@ -30,16 +28,16 @@ export default navReducer;
 
 // Start with two routes: The Main screen, with the Login screen on top.
 /* VERY INTERESTING
-const firstAction = AppNavigator.router.getActionForPathAndParams("Home");
+const firstAction = MainNavigator.router.getActionForPathAndParams("Home");
 console.log("First action");
 console.log(firstAction);
-const tempNavState = AppNavigator.router.getStateForAction(firstAction);
+const tempNavState = MainNavigator.router.getStateForAction(firstAction);
 console.log("temp nav state");
 console.log(tempNavState);
-const secondAction = AppNavigator.router.getActionForPathAndParams("Login");
+const secondAction = MainNavigator.router.getActionForPathAndParams("Login");
 console.log("second action");
 console.log(secondAction);
-const initialNavState = AppNavigator.router.getStateForAction(
+const initialNavState = MainNavigator.router.getStateForAction(
   secondAction,
   tempNavState
 );

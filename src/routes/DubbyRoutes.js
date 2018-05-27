@@ -1,5 +1,5 @@
-import Dubby1 from "../components/Dubby1";
-import Dubby2 from "../components/Dubby2";
+import Dubby1 from "../screens/Dubby1";
+import Dubby2 from "../screens/Dubby2";
 
 export default {
   Dubby1: {

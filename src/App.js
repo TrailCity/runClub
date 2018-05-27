@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { connect } from "react-redux";
 import SplashScreen from "react-native-splash-screen";
-import AuthStack from "./auth";
-import Main from "./main";
+import AuthNavigator from "./navigators/AuthNavigator";
+import MainNavigator from "./navigators/MainNavigator";
 
 class App extends Component {
   state = {
@@ -11,7 +11,6 @@ class App extends Component {
     isLoading: false
   };
   async componentDidMount() {
-    SplashScreen.hide();
     try {
       const user = await Auth.currentAuthenticatedUser();
       this.setState({ user, isLoading: false });
@@ -29,17 +28,17 @@ class App extends Component {
   }
   render() {
     if (this.state.isLoading) return null;
-    {
-      /* This is where we put in the splash screen beauty*/
+    if (!this.state.isLoading) {
+      SplashScreen.hide();
     }
     let loggedIn = false;
     if (this.state.user.username) {
       loggedIn = true;
     }
     if (loggedIn) {
-      return <Main />;
+      return <MainNavigator />;
     }
-    return <AuthStack />;
+    return <AuthNavigator />;
   }
 }
 

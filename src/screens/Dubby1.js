@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { View, Text } from "react-native";
 import { NavigationActions } from "react-navigation";
 import PropTypes from "prop-types";
-import AppButton from "./AppButton";
+import AppButton from "../components/AppButton";
 
 const Dubby1 = ({ nextScreen }) => (
   <View>

@@ -1,7 +1,7 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import Welcome from "./Welcome";
-import SignUp from "./SignUp";
+import Welcome from "../screens/Welcome";
+import SignUp from "../screens/SignUp";
 
 const routes = {
   Welcome,

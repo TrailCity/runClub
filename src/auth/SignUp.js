@@ -64,6 +64,7 @@ class SignUp extends Component {
           type="email"
           onChangeText={this.onChangeTextEmail}
           value={this.state.email}
+          autoFocus={true}
         />
         <Input
           placeholder="password"

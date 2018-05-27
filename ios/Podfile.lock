@@ -20,6 +20,7 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
+  - JKBigInteger2 (0.0.5)
   - React (0.54.2):
     - React/Core (= 0.54.2)
   - react-native-google-maps (0.20.1):
@@ -56,6 +57,8 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNAWSCognito (1.29.0):
+    - JKBigInteger2 (= 0.0.5)
   - yoga (0.54.2.React)
 
 DEPENDENCIES:
@@ -74,6 +77,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNAWSCognito (from `../node_modules/amazon-cognito-identity-js`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 EXTERNAL SOURCES:
@@ -83,17 +87,21 @@ EXTERNAL SOURCES:
     :path: ../node_modules/react-native-maps
   react-native-maps:
     :path: ../node_modules/react-native-maps
+  RNAWSCognito:
+    :path: ../node_modules/amazon-cognito-identity-js
   yoga:
     :path: ../node_modules/react-native/ReactCommon/yoga/yoga.podspec
 
 SPEC CHECKSUMS:
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
+  JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
   React: c237e42de9c70e5cac6eeb52b4cfd3a0910c1f00
   react-native-google-maps: 2cfe3b01f8422c7dae51d8764139fd70f888cfce
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
+  RNAWSCognito: 2fae6c91c4e097438f8e18b6a72954379a406242
   yoga: 55da126afc384965b96bff46652464373b330add
 
-PODFILE CHECKSUM: c4b3421887711958af6e10359daf025f220877e8
+PODFILE CHECKSUM: 8b336d57723ec9536b49d04f2381f54a6576c18a
 
 COCOAPODS: 1.4.0

@@ -1,0 +1,117 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Runner {
+  id: ID!
+  email: String!
+  joined: String!
+  firstName: String!
+  lastName: String!
+  age: Int!
+  birthday: String
+  gender: Gender
+  blurb: String
+  # TODO
+  # photo: S3Object
+  # miniPhoto: S3Object
+  averagePace: Pace
+  averageDistance: Int
+  baseLocation: Int
+  currentLocation: Coordinate
+}
+
+type RunnerInput {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  age: Int!
+  gender: Gender!
+}
+
+type UpdateRunnerInput {
+  id: ID!
+  email: String
+  firstName: String
+  lastName: String
+  age: Int
+  gender: Gender
+}
+
+type DeleteRunnerInput {
+  id: ID!
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  # OTHER
+  # TODO how to handle
+}
+
+type Pace {
+  minutes: Int
+  seconds: Int
+}
+
+type PaceInput {
+  minutes: Int
+  seconds: Int
+}
+
+type Run {
+  id: ID!
+  initiator: ID!
+  start: Coordinate!
+  title: String
+}
+
+type RunInput {
+  id: ID!
+  initiator: ID!
+  start: CoordinateInput
+  # Success callbacks from the Geolocation API look like this:
+  # {
+  #   "timestamp": 1484669056399.49,
+  #   "coords": {
+  #     "accuracy": 5,
+  #     "altitude": 0,
+  #     "altitudeAccuracy": -1,
+  #     "heading": -1,
+  #     "latitude": 37.785834,
+  #     "longitude": -122.406417,
+  #     "speed": -1
+  #   }
+  # }
+  # And react-native-maps <Marker />s have a coordinate prop of
+  # type LatLon {
+  #   latitude: Number,
+  #   longitude: Number,
+  # }
+  title: String
+}
+
+type Coordinate {
+  latitude: Float!
+  longitude: Float!
+}
+
+type CoordinateInput {
+  latutude: Float!
+  longitude: Float!
+}
+
+type Query {
+  getSingleRunner(id: ID!): Runner
+  listRunners(first: Int, after: String): RunnerConnection
+  getSingleRun(id: ID!): Run
+  listRuns(id: ID!, first: Int, after: String): RunsConnection
+}
+
+type Mutation {
+  createRunner(input: RunnerInput!): Runner
+  updateRunner(input: UpdateRunnerInput!): Runner
+  deleteRunner(input: DeleteRunnerInput!): Runner
+}

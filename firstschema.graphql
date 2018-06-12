@@ -1,0 +1,212 @@
+# Some of this didn't work, and actually I didn't start with Input and Storage, either
+# Though a Type and TypeInput pattern seems to be legit, so there's that ¯\_(ツ)_/¯
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  singleRunner(id: ID!): Runner
+  singleRun(id: ID!): Run
+  allRunners: Runners
+  allRuns: Runs
+}
+
+type Mutation {
+  addRunner(id: ID!, email: String!, joined: InputDate!): Runner
+  updateRunner(
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String
+    age: Int
+    birthday: InputDate
+    gender: Gender
+    blurb: String
+    photo: String
+    miniPhoto: String
+    averagePace: Mmss
+    averageDistance: Distance
+    baseLocation: Zip
+    currentLocation: Gps
+  ): Runner
+  deleteRunner(id: ID!): Runner
+  runnerWasSwipedRight(swiper: Runner!): Runner
+  runnerWasSwipedLeft(swiper: Runner!): Runner
+  runnerWasReported(
+    id: ID!
+    reporter: Runner!
+    reported: Runner!
+    type: ReportType!
+    time: InputDate!
+    message: String
+  ): Case
+  addRun(
+    id: ID!
+    initiator: Runner!
+    start: Gps!
+    time: InputDate!
+    plannedPace: Mmss!
+    plannedDistance: Distance!
+    title: String
+    blurb: String
+  ): Run
+  updateRun(
+    id: ID!
+    start: Gps
+    time: InputDate
+    plannedPace: Mmss
+    plannedDistance: Distance
+    title: String
+    blurb: String
+  ): Run
+  deleteRun(id: ID!): Run
+  joinRun(id: ID!, joined: Runner): Run
+  leaveRun(id: ID!, joined: Runner): Run
+  checkedInAtRun(id: ID!, checkedIn: Runner): Run
+  sendMessage(
+    id: ID!
+    sender: Runner!
+    time: InputDate!
+    message: String!
+    sortType: SortType!
+    target: Runner
+    run: Run
+  ): Message
+}
+
+type Runners {
+  runners: [Runner]
+}
+
+type Runner {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String!
+  age: Int
+  birthday: StorageDate
+  joined: StorageDate!
+  gender: Gender
+  blurb: String
+  photo: StorageLink
+  miniPhoto: StorageLink
+  averagePace: Mmss
+  averageDistance: Distance
+  baseLocation: Zip
+  currentLocation: Gps
+  swipedRight: [Runner]
+  friends: [Runner]
+  swipedLeft: [Runner]
+  reported: [Case]
+  reportedBy: [Case]
+  messages: [Message]
+}
+
+type Runs {
+  runs: [Run]
+}
+
+type Run {
+  id: ID!
+  initiator: Runner!
+  start: Gps!
+  time: StorageDate!
+  plannedPace: Mmss!
+  plannedDistance: Distance!
+  title: String
+  blurb: String
+  joined: [Runner]
+  checkedIn: [Runner]
+  chat: [Message]
+}
+
+input InputDate {
+  millisecond: Int
+  second: Int
+  minute: Int
+  hour: Int
+  day: Int
+  month: Int
+  year: Int
+}
+
+type StorageDate {
+  millisecond: Int
+  second: Int
+  minute: Int
+  hour: Int
+  day: Int
+  month: Int
+  year: Int
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  # TODO Okay so "Other" seems offputting, non-binary incomplete (agendered) ...
+  # TODO Solution, if they click "Other," display some text saying we're working on it
+}
+
+input InputLink {
+  url: String
+}
+
+type StorageLink {
+  url: String
+}
+
+type Mmss {
+  minutes: Int
+  seconds: Int
+}
+
+type Distance {
+  distance(unit: DistanceUnit = MILE): Float
+}
+
+enum DistanceUnit {
+  MILE
+  KILOMETER
+}
+
+type Zip {
+  zipCode: Int
+}
+
+type Gps {
+  latitude: Float!
+  longitude: Float!
+}
+
+type Case {
+  id: ID!
+  reporter: Runner!
+  reported: Runner!
+  type: ReportType!
+  time: StorageDate!
+  message: String
+}
+
+enum ReportType {
+  YELLOW
+  RED
+  BLOCK
+}
+
+type Message {
+  id: ID!
+  sender: Runner!
+  time: StorageDate!
+  message: String!
+  sortType: SortType!
+  target: Runner
+  run: Run
+}
+
+enum SortType {
+  PERSONAL
+  GROUP
+}

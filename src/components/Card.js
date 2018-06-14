@@ -18,16 +18,14 @@ const CardText = styled.Text`
   background-color: transparent;
 `;
 
-const Card = ({ firstName, lastName }) => (
+const Card = ({ name }) => (
   <Container>
-    <CardText>{firstName}</CardText>
-    <CardText>{lastName}</CardText>
+    <CardText>{name}</CardText>
   </Container>
 );
 
 Card.propTypes = {
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired
 };
 
 export default Card;

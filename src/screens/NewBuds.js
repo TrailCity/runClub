@@ -1,26 +1,17 @@
-import React, { Component } from "react";
-import { View, Text } from "react-native";
-import PropTypes from "prop-types";
-import styled from "styled-components/native";
-import Swiper from "react-native-deck-swiper";
-import Card from "../components/Card";
-import data from "../data/data";
+import React from "react";
+import { graphql, compose } from "react-apollo";
+import SwipeeDoo from "../components/SwipeeDoo";
+import AllRunnersQuery from "../Queries/AllRunnersQuery";
 
-class NewBuds extends Component {
-  render() {
-    return (
-      <Swiper
-        cards={data}
-        renderCard={user => {
-          return <Card firstName={user.firstName} lastName={user.lastName} />;
-        }}
-      />
-    );
-  }
-}
-
-NewBuds.navigationOptions = {
-  headerLeft: null
-};
+const NewBuds = compose(
+  graphql(AllRunnersQuery, {
+    options: {
+      fetchPolicy: "cache-and-network"
+    },
+    props: props => ({
+      runners: props.data.runners
+    })
+  })
+)(SwipeeDoo);
 
 export default NewBuds;

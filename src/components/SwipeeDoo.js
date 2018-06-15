@@ -3,8 +3,7 @@ import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import Swiper from "react-native-deck-swiper";
-import Card from "../components/Card";
-import data from "../data/data";
+import Card from "./Card";
 
 class SwipeeDoo extends Component {
   constructor(props) {

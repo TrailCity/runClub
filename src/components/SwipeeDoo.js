@@ -11,9 +11,26 @@ class SwipeeDoo extends Component {
   }
   render() {
     const { runners } = this.props;
+    const dummyRunners = [
+      {
+        name: "Herb Derbyson"
+      },
+      {
+        name: "Kyle Lieberman"
+      },
+      {
+        name: "Jessica Jones"
+      }
+    ];
+    let dummyValue;
+    if (runners) {
+      dummyValue = runners;
+    } else {
+      dummyValue = dummyRunners;
+    }
     return (
       <Swiper
-        cards={runners}
+        cards={dummyValue}
         renderCard={user => {
           return <Card name={user.name} />;
         }}

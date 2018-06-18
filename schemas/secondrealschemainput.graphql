@@ -1,0 +1,58 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Query {
+  runners: [Runner]
+  getRunner(id: ID!): Runner
+  listRunners(first: Int, after: String): RunnerConnection
+}
+
+type Runner {
+  id: ID!
+  name: String
+}
+
+type Run {
+  id: ID!
+  initiator: Runner
+  time: String
+  place: String
+  title: String
+}
+
+type RunnerConnection {
+  items: [Runner]
+  nextToken: String
+}
+
+type Mutation {
+  createRunner(input: CreateRunnerInput!): Runner
+  updateRunner(input: UpdateRunnerInput!): Runner
+  deleteRunner(input: DeleteRunnerInput!): Runner
+}
+
+input CreateRunnerInput {
+  id: ID!
+  name: String
+}
+
+input UpdateRunnerInput {
+  id: ID!
+  name: String
+}
+
+input DeleteRunnerInput {
+  id: ID!
+}
+
+type Subscription {
+  onCreateRunner(id: ID, name: String): Runner
+    @aws_subscribe(mutations: ["createRunner"])
+  onUpdateRunner(id: ID, name: String): Runner
+    @aws_subscribe(mutations: ["updateRunner"])
+  onDeleteRunner(id: ID, name: String): Runner
+    @aws_subscribe(mutations: ["deleteRunner"])
+}

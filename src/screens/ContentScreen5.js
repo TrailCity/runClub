@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 import Counter from "../components/Counter";
 
-class ContentScreen3 extends Component {
+class ContentScreen5 extends Component {
   render() {
     return (
       <View>
@@ -13,8 +13,8 @@ class ContentScreen3 extends Component {
   }
 }
 
-ContentScreen3.navigationOptions = {
+ContentScreen5.navigationOptions = {
   headerLeft: null
 };
 
-export default ContentScreen3;
+export default ContentScreen5;

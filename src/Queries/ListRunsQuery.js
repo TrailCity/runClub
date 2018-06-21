@@ -2,6 +2,14 @@ import gql from "graphql-tag";
 
 export default gql`
   query ListRunsQuery {
-    listRuns
+    listRuns {
+      items {
+        id
+        initiator
+        time
+        place
+        title
+      }
+    }
   }
 `;

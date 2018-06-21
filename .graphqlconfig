@@ -1,0 +1,8 @@
+{
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "dev": "https://lyjjfv43pfcwlamsulywpxzfv4.appsync-api.us-east-1.amazonaws.com/graphql"
+    }
+  }
+}

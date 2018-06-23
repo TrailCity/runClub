@@ -6,22 +6,29 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
-
-const initialState = {
-  time: "",
-  place: "",
-  title: ""
-};
+import { v4 } from "uuid";
 
 class SetRun extends Component {
-  state = initialState;
+  constructor(props) {
+    super(props);
+    this.state = this.getInitialState();
+  }
+  getInitialState = () => ({
+    id: v4(),
+    time: "",
+    place: "",
+    title: ""
+  });
   onChangeText = (key, value) => {
     this.setState({
       [key]: value
     });
   };
   createRun = () => {
-    // TODO THE STUFF
+    const { id, time, place, title } = this.state;
+    this.setState(this.getInitialState(), () => {
+      this.props.onCreate({ id, time, place, title });
+    });
   };
   render() {
     const { toViewRun } = this.props;

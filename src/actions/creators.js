@@ -23,6 +23,7 @@ function logInFailure(err) {
 }
 
 export function logOut() {
+  Auth.signOut();
   return {
     type: types.LOG_OUT
   };

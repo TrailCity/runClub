@@ -21,6 +21,7 @@ export default (state = initialState, action) => {
         signInError: false
       };
     case types.LOG_IN_SUCCESS:
+      console.log(action.user);
       return {
         isAuthenticating: false,
         user: action.user

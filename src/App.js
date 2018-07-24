@@ -18,12 +18,18 @@ class App extends Component {
       this.setState({ isLoading: false });
     }
   }
-  async componentWillReceiveProps(nextProps) {
-    try {
-      const user = await Auth.currentAuthenticatedUser();
-      this.setState({ user });
-    } catch (err) {
-      this.setState({ user: {} });
+  async componentDidUpdate(prevProps) {
+    console.log("prevProps.auth:", prevProps.auth);
+    console.log("this.props.auth", this.props.auth);
+    if (this.props.auth !== prevProps.auth) {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        this.setState({ user });
+        console.log("app.js cdu success", user);
+      } catch (err) {
+        this.setState({ user: {} });
+        console.log("app.js cdu failure", err);
+      }
     }
   }
   render() {

@@ -28,7 +28,7 @@ class App extends Component {
         console.log("app.js cdu success", user);
       } catch (err) {
         this.setState({ user: {} });
-        console.log("app.js cdu failure", err);
+        console.log("app.js cdu failure:", "'", err, "'");
       }
     }
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import AppButton from "../components/AppButton";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -33,7 +33,7 @@ class SetRun extends Component {
   render() {
     const { toViewRun } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         <Text>Set Run!</Text>
         <Input
           placeholder="time"
@@ -54,11 +54,19 @@ class SetRun extends Component {
           value={this.state.title}
         />
         <Button title="Create Run!" onPress={this.createRun} />
-        <AppButton onPress={toViewRun} title="View Run!" />
+        {/* <AppButton onPress={toViewRun} title="View Run!" /> */}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 40
+  }
+});
 
 SetRun.navigationOptions = {
   headerLeft: null

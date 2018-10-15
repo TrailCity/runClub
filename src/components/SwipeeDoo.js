@@ -34,6 +34,7 @@ class SwipeeDoo extends Component {
         renderCard={user => {
           return <Card name={user.name} />;
         }}
+        backgroundColor="#006600"
       />
     );
   }

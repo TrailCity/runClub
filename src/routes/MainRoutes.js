@@ -1,19 +1,23 @@
 import NewBuds from "../screens/NewBuds";
-import Runs from "../screens/Runs";
-import ContentScreen3 from "../screens/ContentScreen3";
-import DubbyStackNav from "../navigators/DubbyStackNav";
+import ListRuns from "../screens/ListRuns";
+import SetAndViewRunStackNav from "../navigators/SetAndViewRunStackNav";
+import MapScreen from "../screens/MapScreen";
+import ContentScreen5 from "../screens/ContentScreen5";
 
 export default {
   NewBuds: {
     screen: NewBuds
   },
-  Runs: {
-    screen: Runs
+  ListRuns: {
+    screen: ListRuns
   },
-  Screen3: {
-    screen: ContentScreen3
+  SetAndViewRun: {
+    screen: SetAndViewRunStackNav
   },
-  Screen4: {
-    screen: DubbyStackNav
+  MapScreen: {
+    screen: MapScreen
+  },
+  Screen5: {
+    screen: ContentScreen5
   }
 };

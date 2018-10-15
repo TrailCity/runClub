@@ -73,6 +73,10 @@ class Welcome extends Component {
   }
 }
 
+Welcome.navigationOptions = {
+  header: null
+};
+
 const mapStateToProps = state => ({
   auth: state.auth
 });
@@ -81,7 +85,10 @@ const mapDispatchToProps = {
   dispatchAuthenticate: (email, password) => authenticate(email, password)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Welcome);
 
 const styles = StyleSheet.create({
   container: {

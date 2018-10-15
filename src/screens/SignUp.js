@@ -123,7 +123,10 @@ const mapDispatchToProps = {
     confirmUserSignUp(username, authCode)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
 
 const styles = StyleSheet.create({
   container: {

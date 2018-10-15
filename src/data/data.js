@@ -1,16 +1,16 @@
-const TestProfiles = [
+import { v4 } from "uuid";
+
+const TestRun = [
   {
-    firstName: "Herb",
-    lastName: "Derbyson"
-  },
-  {
-    firstName: "Kyle",
-    lastName: "Lieberman"
-  },
-  {
-    firstName: "Jessica",
-    lastName: "Jones"
+    id: v4(),
+    initiator: {
+      id: 2,
+      name: "Barefoot Ted"
+    },
+    time: "2018-06-18 10:00 EST",
+    place: "CSH State Park Trailhead",
+    title: "Shoes optional run!"
   }
 ];
 
-export default TestProfiles;
+export default TestRun;

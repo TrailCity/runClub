@@ -1,18 +1,24 @@
-import { AppRegistry } from "react-native";
 import React from "react";
-import Amplify from "aws-amplify";
-import config from "./src/aws-exports";
-import configureStore from "./src/store/configureStore";
+import { AppRegistry } from "react-native";
+
+import { ApolloProvider } from "react-apollo";
+import { Rehydrated } from "aws-appsync-react";
 import { Provider } from "react-redux";
 import App from "./src/App";
+
+import Amplify from "aws-amplify";
+import config from "./src/aws-exports";
+
 import AWSAppSyncClient from "aws-appsync";
-import { Rehydrated } from "aws-appsync-react";
+import AppSync from "./src/AppSync.js";
 import { AUTH_TYPE } from "aws-appsync/lib/link/auth-link";
-import { ApolloProvider } from "react-apollo";
 // import * as AWS from "aws-sdk";
 // If using IAM for auth type, for testing.
 // TODO migrate to using IAM for auth type, for testing
-import AppSync from "./src/AppSync.js";
+
+import configureStore from "./src/store/configureStore";
+
+Amplify.configure(config);
 
 const client = new AWSAppSyncClient({
   url: AppSync.graphqlEndpoint,
@@ -22,8 +28,6 @@ const client = new AWSAppSyncClient({
     apiKey: AppSync.apiKey
   }
 });
-
-Amplify.configure(config);
 
 const store = configureStore();
 

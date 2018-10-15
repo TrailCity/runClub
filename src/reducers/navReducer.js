@@ -13,7 +13,7 @@ const navReducer = (state = initialNavState, action) => {
   switch (action.type) {
     case "Counter":
       nextState = MainNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: "Screen3" }),
+        NavigationActions.navigate({ routeName: "Screen5" }),
         state
       );
       break;

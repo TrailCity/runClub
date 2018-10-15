@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import MapView from "react-native-maps";
 import PropTypes from "prop-types";
 
-class Runs extends Component {
+class MapScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +21,7 @@ class Runs extends Component {
   }
 }
 
-Runs.navigationOptions = {
+MapScreen.navigationOptions = {
   headerLeft: null
 };
 
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Runs;
+export default MapScreen;
